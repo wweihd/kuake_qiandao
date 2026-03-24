@@ -1,0 +1,39 @@
+name: 夸克网盘自动签到脚本-742038744
+
+on:
+  schedule:
+    # 定时执行，默认UTC时区， 中国时区需要+8小时， 中国时间每天7:45执行
+    - cron: '45 23 * * *'
+
+  workflow_dispatch:  # 允许手动触发
+jobs:
+
+  run-python:
+    runs-on: ubuntu-latest  # 运行环境：Ubuntu 最新版
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # 检查代码
+
+      - name: astral-sh/setup-uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: false
+          cache-dependency-glob: false
+
+
+      - name: Check UV version
+        run: uv --version  # 检查 UV 版本
+
+      - name: Sync dependencies with UV
+        run: uv sync  # 使用 UV 同步依赖
+
+      - name: Run Python script with UV
+        env:
+          QUARK_KPS: LuEBDEPFL8ZWEdn37wPYa4CqlYlLCILGlwb5RoYQD%2BSDZPH97Wa0BrOrH9o7flJl6STv48WVc6ntUWlGI5rKLJI%2F9YKa2v0pcsiAJkPrZ2og%2BA%3D%3D
+          QUARK_SIGN: LuHgEXtytdJyKnYudOJXzeNfAltgJEFsLC3t4VdUT8cOiVycB30SjvqGktggXuCce5c%3D
+          QUARK_VCODE: 1774313754387
+          SMTP_SERVER: #smtp.qq.com
+          SMTP_PORT: #587
+          EMAIL: #742038744@qq.com
+          PASSWORD: #moiseqedrwndcbae
+        run: uv run main.py  # 使用 UV 运行 Python 脚本
