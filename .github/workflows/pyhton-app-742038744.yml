@@ -32,8 +32,8 @@ jobs:
           QUARK_KPS: LuEBDEPFL8ZWEdn37wPYa4CqlYlLCILGlwb5RoYQD%2BSDZPH97Wa0BrOrH9o7flJl6STv48WVc6ntUWlGI5rKLJI%2F9YKa2v0pcsiAJkPrZ2og%2BA%3D%3D
           QUARK_SIGN: LuHgEXtytdJyKnYudOJXzeNfAltgJEFsLC3t4VdUT8cOiVycB30SjvqGktggXuCce5c%3D
           QUARK_VCODE: 1774313754387
-          SMTP_SERVER: #smtp.qq.com
-          SMTP_PORT: #587
+          SMTP_SERVER: smtp.qq.com
+          SMTP_PORT: 587
           EMAIL: #742038744@qq.com
           PASSWORD: #moiseqedrwndcbae
         run: uv run main.py  # 使用 UV 运行 Python 脚本
